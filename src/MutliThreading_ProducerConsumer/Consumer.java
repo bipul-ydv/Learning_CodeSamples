@@ -10,6 +10,11 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         //consume
+        try {
+            resource.produce();
+        }catch (InterruptedException e){
+            System.out.println("Interrupt :"+e.getCause());
+        }
     }
 
 }

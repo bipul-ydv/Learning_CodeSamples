@@ -10,6 +10,11 @@ public class Producer implements Runnable{
     @Override
     public void run() {
     //produce value
+        try {
+            resource.consume();
+        }catch (InterruptedException e){
+            System.out.println("Interrupt :"+e.getCause());
+        }
     }
 
 }
